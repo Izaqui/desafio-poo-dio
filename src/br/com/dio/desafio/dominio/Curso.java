@@ -1,17 +1,25 @@
 package br.com.dio.desafio.dominio;
 
-public class Curso extends Conteudo{
+import java.time.LocalDate;
 
+public class Curso extends ConteudoAbstrato implements CursoI {
+
+    private static final int XP_PADRAO = 0;
     private int cargaHoraria;
+
+    public Curso(String titulo, String descricao, int cargaHoraria) {
+        super(titulo, descricao);
+        this.cargaHoraria = cargaHoraria;
+    }
+
+    public Curso() {
+        this("Título padrão", "Descrição padrão", 0);
+    }
 
     @Override
     public double calcularXp() {
         return XP_PADRAO * cargaHoraria;
     }
-
-    public Curso() {
-    }
-
 
     public int getCargaHoraria() {
         return cargaHoraria;
@@ -28,5 +36,10 @@ public class Curso extends Conteudo{
                 ", descricao='" + getDescricao() + '\'' +
                 ", cargaHoraria=" + cargaHoraria +
                 '}';
+    }
+
+    public void setData(LocalDate now) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setData'");
     }
 }

@@ -1,11 +1,15 @@
 package br.com.dio.desafio.dominio;
 
-public abstract class Conteudo {
+public abstract class Conteudo extends Pessoa{
 
     protected static final double XP_PADRAO = 10d;
 
     private String titulo;
-    private String descricao;
+
+    public Conteudo(String titulo, String descricao){
+        super(descricao);
+        this.titulo = titulo;
+    }
 
     public abstract double calcularXp();
 
@@ -17,11 +21,6 @@ public abstract class Conteudo {
         this.titulo = titulo;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
+    protected abstract void progredir();
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 }
